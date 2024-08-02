@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Forms</title>
+</head>
+
+<body>
+    <Div>
+        <h1 >Student Info Form</h1>
+        <form action="forms.php">
+            <input type="text" name="Name" id="Name" placeholder="Enter your name"> <br><br>
+            <b>Enter Your Section:</b>
+            <label for="sectiona">
+                <input type="radio" name="Section" id="sectiona">Section A</label>
+            <label for="sectionb">
+                <input type="radio" name="Section" id="sectionb">Section B</label> <br>
+            Clubs you want to Join! &rarr;
+            <label for="cluba">
+                <input type="checkbox" name="cluba" id="cluba" class="club">Science</label>
+
+            <input type="checkbox" name="clubb" id="clubb" class="club">
+            <label for="clubb">Mathematics</label>
+            <label for="clubc">
+                <input type="checkbox" name="clubc" id="clubc" class="club">Music</label>
+            <label for="clubd">
+                <input type="checkbox" name="clubd" id="clubd" class="club">Sports</label> <br>
+            Enter Date Of Birth:
+            <input type="date" name="dob" id="dob" style="background-color: #9DBC98;"> Date Of Birth <br>
+            Enter Age:
+            <input type="number" name="age" id="age" min="10" max="20"> <br>
+            Enter Email:
+            <input type="email" name="email" id="email"> <br><br>
+
+            <textarea name="explain" id="explain" cols="30" rows="10" placeholder="Explain your Hobbies"></textarea><br>
+            <label for="House">Select Your House</label>
+            <select name="House" id="House">Select Your House
+                <option value="red" >red</option>
+                <option value="Blue">Blue</option>
+                <option value="Green">Green</option>
+                <option value="Yellow">Yellow</option>
+            </select>
+            <br>
+
+
+            <input type="submit" value="Click Here To Submit">
+
+        </form>
+    </Div>
+</body>
+
+</html>

@@ -1,0 +1,58 @@
+@font-face {
+    src: url(/Fonts/YouTubeSansBold.otf);
+    font-family: ytsans;
+
+}
+
+@font-face {
+    font-family: ytsans2;
+    src: url(/Fonts/YouTubeSansMedium.otf);
+}
+
+.div1 {
+    background-color: red;
+
+    width: 200px;
+    height: 200px;
+    display: inline-block;
+}
+
+.div2 {
+    background-color: green;
+    border-radius: 100px;
+    width: 200px;
+    height: 200px;
+    display: inline-block;
+}
+
+.div3 {
+    border-style: groove;
+    padding-bottom: 15px;
+    padding-left: 15px;
+    padding-right: 15px;
+    display: inline-block;
+}
+
+.div4 {
+    background-color: rgb(35, 33, 33);
+    display: inline-block;
+    padding-left: 15px;
+}
+
+.para1 {
+    color: aliceblue;
+    font-family: ytsans;
+    font-size: 25px;
+    margin-bottom: 5px;
+    text-decoration: none;
+    display: inline-block;
+}
+
+
+.para2 {
+    color: darkgrey;
+    width: 300px;
+    font-family: ytsans2;
+    margin-top: 3px;
+
+}

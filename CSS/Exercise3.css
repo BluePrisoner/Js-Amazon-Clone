@@ -1,0 +1,39 @@
+
+        .name, .email{
+            display: block;
+        }
+        .name{
+            margin-bottom: 10px;
+        }
+        .para{
+            width: 200px;
+            display: inline-block;
+            vertical-align: middle;
+        }
+        
+        
+        .search-box{
+            width: 500px;
+            padding-top:7px ;
+            padding-bottom: 7px;
+            border: none;
+            border-radius: 30px;
+            padding-left: 14px;
+            padding-right:10px ;
+            box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.168);
+            font-size: 15px;
+            margin-top: none;
+           
+            
+            
+        }
+       .search-box:focus{
+        outline: none;
+       }
+       .google-logo{
+        width: 70px;
+        vertical-align: middle;
+        margin-left: 220px;
+        
+       }
+   

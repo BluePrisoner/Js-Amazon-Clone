@@ -1,0 +1,48 @@
+.heading{
+    font-size: 12px;
+    color: rgb(81, 74, 74);
+    font-family: Arial;
+    margin-bottom: 5px;
+    
+}
+.email{
+    height: 28px;
+    width: 268px;
+    font-size: 14px;
+    border-radius: 4px;
+    border-width: 1px;
+    border-color: rgb(81, 74, 74);
+    color: rgb(81, 74, 74);
+    padding-left: 10px;
+    margin-right: none;
+}
+.email:focus{
+    outline: none;
+}
+.star{
+    color: rgb(169, 42, 42);
+    margin-left: none;
+}
+.policy{
+    font-size: 12px;
+    color: rgb(81, 74, 74);
+    font-family: Arial;
+    margin-top: 20px;
+
+}
+.button{
+  width: 283px;
+  padding-top:13px ;
+  padding-bottom:13px ;
+  border-radius: 30px;
+  border: none;
+  font-size: 17px;
+  background-color: rgb(49, 95, 223);
+  color: aliceblue;
+  cursor: pointer;
+  transition: opacity 0.25s;
+
+}
+.button:active{
+    opacity: 0.8;
+}

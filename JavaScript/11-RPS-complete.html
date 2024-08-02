@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM-RPS</title>
+
+    <link rel = "stylesheet" href = "/CSS/11-RPS-complete.css">
+</head>
+
+<body>
+
+    <h1>Rock Paper Scissor</h1>
+    <p>Choose your move</p>
+    <button class ="button-move" onclick="      pickMove();
+                           playerMove = 'rock'; 
+                           play(playerMove);
+                           
+                           
+        
+        "><img src="/Images/rock-emoji.png" class="img-button"></button>
+    <button class ="button-move" onclick="      pickMove();
+                           playerMove = 'paper'; 
+                           play(playerMove);
+                           
+                           
+                           
+    
+    "><img src="/Images/paper-emoji.png" class="img-button"></button>
+
+    <button class ="button-move" onclick="      pickMove();
+                           playerMove = 'scissor'; 
+                           play(playerMove);
+                            
+                           
+    "><img src="/Images/scissor-emoji.png" class="img-button"></button>
+
+
+    <p class="js-move move">
+        
+    </p>
+    <p class="js-result result"></p>
+    <p class="js-score"></p>
+
+    <button class="reset-button" onclick="      console.log(`Score was Reset.`);
+                           tally.wins = 0; 
+                           tally.losses = 0; 
+                           tally.tie = 0; 
+                           localStorage.removeItem('tally');
+                           document.querySelector('.js-move')
+                                .innerHTML = 'Score was Reset.';
+                            document.querySelector('.js-result')
+                             .innerHTML = null;
+
+                           updateScoreElement();
+
+
+    ">Reset Score</button>
+
+<script src="/JavaScript/11-RPS-complete.js"></script>
+
+</body>
+
+</html>
