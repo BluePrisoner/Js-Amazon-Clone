@@ -5,13 +5,14 @@ import { formatCurrency } from './utils/money.js';
 
 
 let cartSummaryHTML = '';
-  
+console.log(cart);
 cart.forEach((cartItem)=>{
 
-
+   
   let matchingProduct;
   products.forEach((product)=>{
-    if(product.id===cartItem.id)
+    const productId = product.id;
+    if(productId===cartItem.productId)
     {
       matchingProduct = product;
     }
@@ -106,11 +107,12 @@ cart.forEach((cartItem)=>{
 document.querySelectorAll('.js-delete-link')
   .forEach((link)=>{
     link.addEventListener('click',()=>{
-      const productId = link.dataset.productId;
+      let productId = (link.dataset.productId);
       removeFromCart(productId);
       const container = document.querySelector(`.js-cart-item-container-${productId}`);
       
       container.remove();
+      console.log(cart);
      
   }); 
 });
