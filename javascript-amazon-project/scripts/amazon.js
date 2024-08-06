@@ -60,15 +60,16 @@ document.querySelector('.js-products-grid')
   .innerHTML = productsHTML;
 
 
+updateCartQuantity();
 
 function updateCartQuantity() {
-  let cartQuantity = 0;
-
+  
+  let totalCartQuantity = 0;
   cart.forEach((cartItem) => {
-    cartQuantity += cartItem.quantity;
+    totalCartQuantity += cartItem.quantity;
   })
   document.querySelector('.js-cart-quantity')
-    .innerHTML = cartQuantity;
+    .innerHTML = totalCartQuantity;
 
 }
 
