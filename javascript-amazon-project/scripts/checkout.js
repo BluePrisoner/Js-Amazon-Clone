@@ -1,4 +1,4 @@
-import {cart, removeFromCart,totalCartQuantity} from '../data/cart.js';
+import {cart, removeFromCart,totalCartQuantity,updateDeliveryOption} from '../data/cart.js';
 import {products} from '../data/products.js';
 import { formatCurrency } from './utils/money.js';
 import dayjs from 'https://unpkg.com/dayjs@1.11.10/esm/index.js';
@@ -18,19 +18,25 @@ let cartSummaryHTML = '';
 cart.forEach((cartItem)=>{
 
    
-  let matchingProduct;
+  let matchingProduct,deliveryOptionId;
   products.forEach((product)=>{
     const productId = product.id;
     if(productId===cartItem.productId)
     {
       matchingProduct = product;
+      deliveryOptionId = cartItem.deliveryOptionId;
+      
     }
   });
 
   
+
+  
+
+  
     cartSummaryHTML += `<div class="cart-item-container js-cart-item-container-${matchingProduct.id}">
-            <div class="delivery-date">
-              Delivery date: Tuesday, June 21
+            <div class="delivery-date js-delivery-date">
+              Delivery date: ${dateString(deliveryOptionId)}
             </div>
 
             <div class="cart-item-details-grid">
@@ -70,7 +76,7 @@ cart.forEach((cartItem)=>{
 });
 
   function deliveryOptionsHTML(matchingProduct){
-
+    
     let html = ``;
     deliveryOptions.forEach((deliveryOption) => {
 
@@ -89,10 +95,12 @@ cart.forEach((cartItem)=>{
        
         
       html += 
-      `<div class="delivery-option">
+      `<div class="delivery-option js-delivery-option"
+         data-product-id = "${matchingProduct.id}"
+         data-delivery-option-id = "${deliveryOption.id}">
             <input type="radio"
               class="delivery-option-input"
-              name="delivery-option-${matchingProduct.id}" ${checkedRadio(deliveryOption)}>
+             name="delivery-option-${matchingProduct.id}" ${checkedRadio(deliveryOption)}>
             <div>
               <div class="delivery-option-date">
                 ${dateString}
@@ -108,7 +116,7 @@ cart.forEach((cartItem)=>{
   }
  
   //Selecting defualt radio option
-  
+
   function checkedRadio(deliveryOption){
     if(deliveryOption.id==='1')
         return 'checked';
@@ -130,3 +138,31 @@ document.querySelectorAll('.js-delete-link')
      
   }); 
 });
+
+document.querySelectorAll('.js-delivery-option')
+  .forEach((element)=>{
+    element.addEventListener('click',()=>{
+     
+     const {productId,deliveryOptionId} = element.dataset;  //shorthand property
+    
+     
+      updateDeliveryOption(productId,deliveryOptionId);
+     
+      
+    });
+  });
+
+  function dateString(deliveryOptionId){
+  
+  let dateString;
+   deliveryOptions.forEach((deliveryOption) => {
+    if(deliveryOptionId === deliveryOption.id){
+      const today = dayjs();
+      const deliveryDate = today.add(deliveryOption.deliveryDays,'days');
+      dateString = deliveryDate.format('dddd, MMMM D');
+      
+    }
+   });
+   return dateString
+  }
+  
