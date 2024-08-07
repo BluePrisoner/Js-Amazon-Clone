@@ -35,7 +35,7 @@ export function addToCart(productId) {
   export function saveToStorage()
   {
     localStorage.setItem('cart',JSON.stringify(cart));
-    console.log(JSON.parse(localStorage.getItem('cart')));
+    
   }
 
   export function removeFromCart(productId){
@@ -72,7 +72,7 @@ export function addToCart(productId) {
    
     matchingItem.deliveryOptionId = deliveryOptionId;
 
-    console.log(cart);
+    
 
    
 
