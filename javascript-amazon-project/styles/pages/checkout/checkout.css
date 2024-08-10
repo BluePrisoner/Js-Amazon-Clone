@@ -115,7 +115,22 @@
   margin-bottom: 5px;
 }
 
-.product-quantity .link-primary {
+.is-editing-quantity .quantity-input,.is-editing-quantity .save-quantity-link{
+  display: initial;
+}
+.is-editing-quantity .update-quantity-link,.is-editing-quantity .quantity-label{
+  display: none;
+}
+.quantity-input{
+  width: 30px;
+  padding-left: 6px;
+  margin-left: 5px;
+}
+.quantity-input,.save-quantity-link{
+  display: none;
+}
+
+.product-quantity, .link-primary {
   margin-left: 3px;
 }
 
@@ -209,3 +224,4 @@
   margin-top: 11px;
   margin-bottom: 15px;
 }
+
