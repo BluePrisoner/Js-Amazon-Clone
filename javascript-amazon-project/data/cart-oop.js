@@ -23,7 +23,7 @@ function Cart(localStorageKey){
         addToCart(productId) {
             let matchingItem;
           
-            let selectedQuantity = 1;
+            let selectedQuantity = 1; //change
             
            
             
