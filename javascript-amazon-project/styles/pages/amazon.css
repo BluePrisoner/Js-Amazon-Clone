@@ -164,3 +164,8 @@
   padding: 8px;
   border-radius: 50px;
 }
+
+.extra-info-link{
+  text-decoration: none;
+  color:rgb(1, 124, 182)
+}
