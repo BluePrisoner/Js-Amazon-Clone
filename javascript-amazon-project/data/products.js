@@ -38,6 +38,12 @@ class Products{
   extraInfoHTML(){
     return '';
   }
+  getImage(){
+    return `${this.image}`;
+  }
+  getProductName(){
+    return this.name;
+  }
 };
 
 class Clothing extends Products{
@@ -55,7 +61,7 @@ class Clothing extends Products{
   }
 }
 
-class Appliance extends Products{
+class Appliance extends Products{ //Doesnot work if products are loaded from backend
   applianceWarrantyLink;
 
   constructor(productDetails){
@@ -70,27 +76,28 @@ class Appliance extends Products{
   }
 }
 
-export let products = [];
+export let products = []; 
 
-export function loadProductsFetch(){
+ export function loadProductsFetch(){
   const promise = fetch('https://supersimplebackend.dev/products').then((response)=>{
+    
     return response.json();
+    
   }).then((productsData)=>{
+    
     products = productsData.map((productDetails)=>{
   
       if (productDetails.type === 'clothing') {
         return new Clothing(productDetails);
       }
-      /* if (productDetails.type === 'appliance') {
-        return new Appliance(productDetails);  
-        //DOESNOT work if the products are loaded from backend
-      } */
       return new Products(productDetails);
     });
   });
 
   return promise;
 }
+
+
 
 
 
@@ -119,7 +126,7 @@ export function loadProductsFetch(){
  */
 
 
-/*  export const products = [
+/* export const products = [
   {
     id: "e43638ce-6aa0-4b85-b27f-e1d07eb678c6",
     image: "images/products/athletic-cotton-socks-6-pairs.jpg",
@@ -801,4 +808,6 @@ export function loadProductsFetch(){
   }
   return new Products(productDetails);
 }); */
+
+
 

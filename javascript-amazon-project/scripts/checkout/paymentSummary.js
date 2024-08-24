@@ -70,7 +70,14 @@ export function renderPaymentSummary(){
 
         });
     
-    document.querySelector('.js-place-order')
+    if(!cart.length){
+      document.querySelector('.js-place-order')
+        .addEventListener('click',()=>{
+          alert('No items in Cart.');
+        });
+    }
+    else{
+       document.querySelector('.js-place-order')
         .addEventListener('click',async ()=>{
 
          try{
@@ -88,10 +95,13 @@ export function renderPaymentSummary(){
          } 
          catch(error){
           console.log('Unexpected Error.Please try again later');
+          console.log(error);
          }
 
          window.location.href = 'orders.html';
          
         });
+    }
+   
     
 }
