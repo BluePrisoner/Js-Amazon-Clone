@@ -14,7 +14,7 @@ async function loadOrderPage(){
 function OrdersPage(){
     let ordersHTML = '';
 
-    console.log(orders);
+    
 
     if (!orders || orders.length === 0) {
       ordersHTML = '<div>No orders available.</div>';
@@ -101,7 +101,7 @@ function OrderDetailsgrid(){
   return orderHTML;
 }
 
-function formatDate(dateTimeInfo){
+export function formatDate(dateTimeInfo){
 
   const date = dayjs(dateTimeInfo);
   const formattedDate = date.format('MMMM D');
