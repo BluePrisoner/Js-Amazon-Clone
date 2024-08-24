@@ -4,10 +4,17 @@ import {loadProductsFetch } from "../data/products.js";
 // import '../data/backend-practice.js';
 
 async function loadPage(){
-    await loadProductsFetch();
-    renderOrderSummary();
-    renderPaymentSummary();
 
+    try{
+        await loadProductsFetch();
+        renderOrderSummary();
+        renderPaymentSummary();
+    }
+    catch(error){
+        console.log('Unexpected Error. Please try again later');
+        console.log(error);
+    }
+    
 }
 loadPage(); //Using async await
 
