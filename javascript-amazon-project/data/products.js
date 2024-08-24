@@ -87,7 +87,7 @@ export function loadProducts(renderProductsGrid){
       return new Products(productDetails);
     });
 
-    console.log(products);
+    
     renderProductsGrid();
   });
 
