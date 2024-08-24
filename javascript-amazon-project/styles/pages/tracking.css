@@ -43,7 +43,7 @@
   margin-bottom: 15px;
 }
 
-.current-status {
+.current-status{
   color: rgb(6, 125, 98);
 }
 
@@ -72,10 +72,28 @@
   border-radius: 50px;
   overflow: hidden;
 }
+ @keyframes fillBar-1 {
+  0% { width: 0%; }
+  100% { width: 10%; }
+}
+ @keyframes fillBar-2 {
+  0% { width: 0%; }
+  100% { width: 50%; }
+}
+ @keyframes fillBar-3 {
+  0% { width: 0%; }
+  100% { width: 100%; }
+}
 
 .progress-bar {
   height: 100%;
   background-color: green;
   border-radius: 50px;
-  width: 50%;
+  width: 0%;
+  animation: fillBar-1 2s ease-in-out forwards;
 }
+
+/* .progress-bar-final{
+  animation: fillBar 2s ease-in-out forwards;
+}
+ */

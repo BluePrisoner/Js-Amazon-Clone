@@ -2,30 +2,40 @@ import { orders } from "../data/orders.js";
 import { loadProductsFetch } from "../data/products.js";
 import { getProduct } from "../data/products.js";
 import dayjs from 'https://unpkg.com/dayjs@1.11.10/esm/index.js';
+import {totalCartQuantity} from '../data/cart.js';
 
 
 async function renderTracking(){
     await loadProductsFetch();
-    console.log('loaded');
+    document.querySelector('.js-cart-quantity').innerText = totalCartQuantity();
     DOMtracking();
+    progessBar();
+
 }
 
-renderTracking();
+const url  = new URL(window.location.href);
+const orderId = url.searchParams.get('orderId');
+const productId = url.searchParams.get('productId');
 
-function trackingHTML(){
-
-    const url  = new URL(window.location.href);
-    const orderId = url.searchParams.get('orderId');
-    const productId = url.searchParams.get('productId');
-    let trackHTML = '';
-    const matchingProduct = getProduct(productId);
-    let matchingOrder;
+let matchingOrder,orderElement;
     orders.forEach((orderItem)=>{
+        if(orderItem.id===orderId)
+            orderElement = orderItem;
         orderItem.products.forEach((product)=>{
             if(productId===product.productId)
                 matchingOrder = product;
         });
     })
+
+renderTracking();
+
+    
+function trackingHTML(){
+
+    
+    let trackHTML = '';
+    const matchingProduct = getProduct(productId);
+    
     
     trackHTML = `
         <a class="back-to-orders-link link-primary" href="orders.html">
@@ -47,19 +57,19 @@ function trackingHTML(){
         <img class="product-image" src="${matchingProduct.getImage()}">
 
         <div class="progress-labels-container">
-          <div class="progress-label">
+          <div class="progress-label js-progress-preparing">
             Preparing
           </div>
-          <div class="progress-label current-status">
+          <div class="progress-label js-progress-shipped">
             Shipped
           </div>
-          <div class="progress-label">
+          <div class="progress-label js-progress-delivered">
             Delivered
           </div>
         </div>
 
         <div class="progress-bar-container">
-          <div class="progress-bar"></div>
+          <div class="progress-bar js-progress-bar"></div>
         </div>`
      
      return trackHTML;   
@@ -76,4 +86,42 @@ function formatDate(dateTimeInfo){
     return formattedDate;
   
   }
+
+function percentOfProgress(){
+     const currentTime = new dayjs();
+    const deliveryTime = new dayjs(matchingOrder.estimatedDeliveryTime);
+    const orderTime = new dayjs(orderElement.orderTime);
+    const percentOfProgress = Math.round((currentTime.diff(orderTime))/(deliveryTime.diff(currentTime)) * 1000);
+    
+    return percentOfProgress;
+}
+
+ function progessBar(){
+   const progressLevel = percentOfProgress();
+   
+   if(progressLevel<=49)
+   {
+    document.querySelector('.js-progress-preparing')
+        .classList.add('current-status');
+        document.querySelector('.progress-bar')
+            .style.animation = 'fillBar-1 2s ease-in-out forwards';    
+   }
+        
+    else if(progressLevel>49 && progressLevel<=99){
+        document.querySelector('.js-progress-shipped')
+        .classList.add('current-status');
+        document.querySelector('.progress-bar')
+            .style.animation = 'fillBar-2 2s ease-in-out forwards';    
+    }
+    else{
+        document.querySelector('.js-progress-delivered')
+        .classList.add('current-status');
+        document.querySelector('.progress-bar')
+            .style.animation = 'fillBar-3 2s ease-in-out forwards';    
+    }
+
+}
+
+
+
 

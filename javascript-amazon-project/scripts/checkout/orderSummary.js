@@ -207,7 +207,7 @@ export function renderOrderSummary(){
           saveToStorage();
           renderOrderSummary();
           renderPaymentSummary();
-          console.log(cart);
+         
           
         });
       });
