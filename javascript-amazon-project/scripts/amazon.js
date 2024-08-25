@@ -1,6 +1,6 @@
 import { addToCart, totalCartQuantity } from '../data/cart.js';
 import { products,loadProductsFetch } from '../data/products.js';
-
+import './utils/searchBar.js'
 
 
 loadProductsFetch().then(()=>{
