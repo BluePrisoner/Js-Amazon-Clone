@@ -11,7 +11,7 @@ async function searchFunction(){
         
         
         document.querySelector('.js-search-button')
-            .addEventListener('click',searchElement());
+            .addEventListener('click',()=>{searchElement()});
         document.querySelector('.js-search-bar')
             .addEventListener('keydown',(event)=>{
                 
