@@ -6,7 +6,7 @@ JavaScipt, HTML, CSS.
 
 ## Frameworks used: 
 
-Jasmine Testing Framework.
+Jasmine Testing Framework, Dayjs(External Lib.).
 
 ## OOPs concept used: 
 
