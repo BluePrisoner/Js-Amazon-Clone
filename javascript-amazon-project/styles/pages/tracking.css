@@ -78,9 +78,13 @@
 }
  @keyframes fillBar-2 {
   0% { width: 0%; }
-  100% { width: 50%; }
+  100% { width: 35%; }
 }
  @keyframes fillBar-3 {
+  0% { width: 0%; }
+  100% { width: 75%; }
+}
+ @keyframes fillBar-4 {
   0% { width: 0%; }
   100% { width: 100%; }
 }

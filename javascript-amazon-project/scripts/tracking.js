@@ -63,6 +63,9 @@ function trackingHTML(){
           <div class="progress-label js-progress-shipped">
             Shipped
           </div>
+          <div class="progress-label js-progress-out-for-delivery">
+            Out for delivery
+          </div>
           <div class="progress-label js-progress-delivered">
             Delivered
           </div>
@@ -91,15 +94,18 @@ function percentOfProgress(){
      const currentTime = new dayjs();
     const deliveryTime = new dayjs(matchingOrder.estimatedDeliveryTime);
     const orderTime = new dayjs(orderElement.orderTime);
-    const percentOfProgress = Math.round((currentTime.diff(orderTime))/(deliveryTime.diff(currentTime)) * 1000);
     
-    return percentOfProgress;
+    const percentOfProgress = (Number(currentTime.diff(orderTime))/Number(deliveryTime.diff(orderTime))*100);
+    
+    return Math.round(percentOfProgress);
 }
 
  function progessBar(){
    const progressLevel = percentOfProgress();
+
+   console.log(progressLevel);
    
-   if(progressLevel<=49)
+   if(progressLevel<=33)
    {
     document.querySelector('.js-progress-preparing')
         .classList.add('current-status');
@@ -107,17 +113,23 @@ function percentOfProgress(){
             .style.animation = 'fillBar-1 2s ease-in-out forwards';    
    }
         
-    else if(progressLevel>49 && progressLevel<=99){
+    else if(progressLevel>33 && progressLevel<=66){
         document.querySelector('.js-progress-shipped')
         .classList.add('current-status');
         document.querySelector('.progress-bar')
             .style.animation = 'fillBar-2 2s ease-in-out forwards';    
     }
-    else{
-        document.querySelector('.js-progress-delivered')
+    else if(progressLevel>66 && progressLevel<=99){
+        document.querySelector('.js-progress-out-for-delivery')
         .classList.add('current-status');
         document.querySelector('.progress-bar')
             .style.animation = 'fillBar-3 2s ease-in-out forwards';    
+    }
+    else{
+      document.querySelector('.js-progress-delivered')
+        .classList.add('current-status');
+        document.querySelector('.progress-bar')
+            .style.animation = 'fillBar-4 2s ease-in-out forwards';  
     }
 
 }
