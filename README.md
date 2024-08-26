@@ -1,18 +1,31 @@
 ## Amazon Clone
 
 ### Languages Used: 
-
-JavaScipt, HTML, CSS.
+```
+JavaScipt
+HTML
+CSS
+```
 
 ### Frameworks used: 
-
-Jasmine Testing Framework, Dayjs(External Lib.).
+```
+Jasmine Testing Framework
+Dayjs(External Lib.).
+```
 
 ### OOPs concept used: 
-
-Inheritance, polymorphism.
+```
+Inheritance
+polymorphism
+```
 
 ### other concepts used:
+```
 
- DOM, Promises and fetch, backend (basic), async await
+DOM
+Promises and fetch
+backend (basic)
+async await
+
+```
 
