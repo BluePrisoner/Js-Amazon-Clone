@@ -2,7 +2,7 @@
 
 ### Languages Used: 
 ```
-JavaScipt
+JavaScript
 HTML
 CSS
 ```
